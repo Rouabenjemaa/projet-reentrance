@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sécurité Blockchain</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        
+        <header>
+            <h1>🛡️ Dashboard Sécurité Smart Contracts</h1>
+            <p class="subtitle">Démonstration interactive de l'attaque de réentrance</p>
+        </header>
+
+        <div class="stats-grid">
+            <!-- Vault Vulnérable -->
+            <div class="card vulnerable">
+                <h3>🔓 Vault Vulnérable</h3>
+                <div class="balance" id="vulnBalance">10.0 ETH</div>
+                <div class="details">
+                    <p>✅ Dépôt possible</p>
+                    <p>❌ Vulnérable à la réentrance</p>
+                    <p>⛽ Gas: <span id="vulnGas">30,321</span></p>
+                </div>
+                <button class="btn" onclick="attackVulnerable()">⚔️ Attaquer</button>
+            </div>
+
+            <!-- Vault Sécurisé -->
+            <div class="card secure">
+                <h3>🛡️ Vault Sécurisé</h3>
+                <div class="balance" id="secureBalance">10.0 ETH</div>
+                <div class="details">
+                    <p>✅ Dépôt possible</p>
+                    <p>✅ Protégé contre réentrance</p>
+                    <p>⛽ Gas: <span id="secureGas">30,321</span></p>
+                </div>
+                <button class="btn" onclick="testDefense()">🛡️ Tester Défense</button>
+            </div>
+
+            <!-- Honeypot -->
+            <div class="card honeypot">
+                <h3>🎣 Honeypot</h3>
+                <div class="balance" id="honeypotBalance">5.0 ETH</div>
+                <div class="details">
+                    <p>✅ Accepte les dépôts</p>
+                    <p>🎯 Détecte les attaques</p>
+                    <p>⛽ Gas: <span id="honeypotGas">30,582</span></p>
+                </div>
+                <button class="btn" onclick="trapHacker()">🎯 Piéger Hacker</button>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="charts">
+            <div class="chart-container">
+                <h3>📈 Évolution des Soldes</h3>
+                <canvas id="balanceChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>⛽ Comparaison du Gas Utilisé</h3>
+                <canvas id="gasChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Logs -->
+        <div class="logs">
+            <h3>📝 Journal des Événements</h3>
+            <div class="log-output" id="logOutput">
+                [00:00:00] Dashboard initialisé<br>
+                [00:00:00] Prêt à simuler les attaques
+            </div>
+            <button class="btn-reset" onclick="resetSimulation()">🔄 Réinitialiser</button>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats">
+            <h3>📊 Statistiques</h3>
+            <div class="stats-grid-small">
+                <div class="stat">
+                    <div class="stat-value" id="attackCount">0</div>
+                    <div class="stat-label">Attaques tentées</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="defenseCount">0</div>
+                    <div class="stat-label">Défenses réussies</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="trappedCount">0</div>
+                    <div class="stat-label">Hackers piégés</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="totalGas">0</div>
+                    <div class="stat-label">Gas total utilisé</div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Projet de Sécurité Blockchain - Dashboard roua-mahdi </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
