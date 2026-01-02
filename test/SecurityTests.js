@@ -1,7 +1,8 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-describe("🔒 TESTS DE SÉCURITÉ COMPLETS", function () {
+describe("TESTS DE SÉCURITÉ COMPLETS", function () {
+
   // ============ TEST 1 : CONTRAT VULNÉRABLE ============
   describe("1. Attaque sur contrat vulnérable", function () {
     let vault, attacker, owner, user1;
@@ -20,24 +21,27 @@ describe("🔒 TESTS DE SÉCURITÉ COMPLETS", function () {
       await attacker.waitForDeployment();
     });
     
-    it("✅ Doit vider le vault vulnérable", async function () {
-      // 1. Le owner dépose 10 ETH
+    it(" Doit vider le vault vulnérable", async function () {
+
+      // 1. Le owner yab3ith 10 ETH
+
       await vault.connect(owner).deposit({ value: ethers.parseEther("10") });
       console.log("💰 Owner dépose 10 ETH");
       
-      // 2. Un utilisateur normal dépose 1 ETH
+      // 2. Un utilisateur normal yab3ith  1 ETH 
+
       await vault.connect(user1).deposit({ value: ethers.parseEther("1") });
       console.log("👤 User1 dépose 1 ETH");
       
-      // Avant l'attaque
+      // 9bal l'attaque
       const balanceBefore = await ethers.provider.getBalance(await vault.getAddress());
       console.log("📊 Vault avant attaque:", ethers.formatEther(balanceBefore), "ETH");
       
-      // 3. L'attaquant lance l'attaque avec seulement 1 ETH
+      // 3. L'attaquant ylancer l'attaque b 1 ETH wahda
       await attacker.connect(user1).attack({ value: ethers.parseEther("1") });
       console.log("⚔️ Attaque lancée !");
       
-      // Après l'attaque
+      // ba3d lattaque  Nchoufou 9adeh fama flous fil vault ba3d ma el hacker khalas
       const balanceAfter = await ethers.provider.getBalance(await vault.getAddress());
       const attackerBalance = await attacker.getStolenBalance();
       
@@ -75,7 +79,8 @@ describe("🔒 TESTS DE SÉCURITÉ COMPLETS", function () {
       console.log("📊 Balance avant:", ethers.formatEther(balanceBefore), "ETH");
       
       try {
-        // Tentative d'attaque (devrait échouer)
+
+        // Tentative d'attaque lzimha tifchill 
         await attacker.attack({ value: ethers.parseEther("1") });
         console.log("❌ L'attaque aurait dû échouer !");
         expect.fail("L'attaque devrait échouer");

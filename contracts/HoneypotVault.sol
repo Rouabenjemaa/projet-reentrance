@@ -60,7 +60,7 @@ contract HoneypotVault {
 
         (bool success, ) = user.call{value: amount}("");
         require(success, "Transfer failed");
-        
+        //===========================================================
         // DÉTECTION: Si après l'envoi, il y a encore un solde → ATTAQUE!
         // (un appel récursif aurait remis un solde) 
 
@@ -83,6 +83,7 @@ contract HoneypotVault {
         balances[_attacker] = 1 ether;  // Donner un solde pour test
         emit AttackDetected(_attacker);
     }
+    
     
      //chta5o flous lattaquant 
 

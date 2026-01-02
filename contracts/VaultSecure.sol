@@ -19,7 +19,8 @@ contract VaultSecure {
         balances[msg.sender] += msg.value;
         emit Deposited(msg.sender, msg.value);
     }
-    
+    // ==============CHECKS-EFFECTS-INTERACTIONS===========================
+
     //  securite bil methode "CHECKS-EFFECTS-INTERACTIONS"
     // tverifier ba3d tamil mise a jour ba3d tab3ith 
 
@@ -42,7 +43,7 @@ contract VaultSecure {
         
         emit Withdrawn(msg.sender, amount); 
     }
-
+// ===================================================================================
     // chitra 9ada andik flous b9aw fil contract  
     
     function getContractBalance() public view returns (uint256) {
